@@ -8,7 +8,6 @@ public class number_prime_less100 {
     {
         if (value < 2)
         {
-            System.out.println(value + " is not a prime");
             return false;
         }
         for (int i = 2; i <= Math.sqrt(value); i++) {

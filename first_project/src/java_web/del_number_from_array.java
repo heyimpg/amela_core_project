@@ -45,8 +45,6 @@ public class del_number_from_array {
             System.out.print(arr[i]+ "\t");
         }
 
-
-
         System.out.println("\n\n\n--------End Code--------");
     }
 }
