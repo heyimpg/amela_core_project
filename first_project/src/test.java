@@ -1,15 +1,25 @@
+import java.util.Arrays;
+
 public class test {
+
+    static void method2(int a){  }
+
+    static void method1(float a){  }
+
+    static void method1(int c){  }
+
+    static void method1(double d){  }
+
     public static void main(String[] args) {
-        int x = 5;
 
-        do{
 
-            System.out.println("a");
+        int a = 100;
+        m(a);
+        System.out.println(a);
 
-            x--;
-
-        } while(x == 5);
     }
-
+    static void m(int x) {
+        x = 200;
+    }
 
 }
