@@ -9,6 +9,7 @@ public class mainClass {
         shape = new Shape("red", false);
         System.out.println(shape);
 
+
         //Kiểm thử 2
         Circle circle = new Circle();
         System.out.println(circle);
