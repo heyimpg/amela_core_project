@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class del_number_from_array {
     public static void main(String[] args) {
         //Show before arr
-        int arr[] = {1,3,5,7,9};
+        int arr[] = {1,3,5,3,7,9};
         System.out.println("Before arr: ");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]+ "\t");

@@ -11,6 +11,11 @@ public class Student extends Person {
     }
 
     @Override
+    public void check() {
+
+    }
+
+    @Override
     public String toString() {
         return super.toString();
     }
