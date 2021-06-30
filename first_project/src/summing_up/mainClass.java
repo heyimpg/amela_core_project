@@ -1,9 +1,11 @@
 package summing_up;
 
+import java.time.Period;
+
 public class mainClass {
     public static void main(String[] args) {
         Student st = new Student();
-        st.talk();
+        System.out.println(st);
         System.out.println("\n\n\n--------End Code--------");
     }
 }

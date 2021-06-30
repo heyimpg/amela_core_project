@@ -1,25 +1,25 @@
 import java.util.Arrays;
 
+
+class ChuNhat {
+    public int rong, dai;
+
+    public ChuNhat(int rong, int dai) {
+        this.rong = rong;
+        this.dai = dai;
+    }
+}
+
 public class test {
-
-    static void method2(int a){  }
-
-    static void method1(float a){  }
-
-    static void method1(int c){  }
-
-    static void method1(double d){  }
+    void method(ChuNhat x) {
+        x.rong = 5;
+        x.dai = 5;
+    }
 
     public static void main(String[] args) {
-
-
-        int a = 100;
-        m(a);
-        System.out.println(a);
-
+        test o = new test();
+        ChuNhat cn = new ChuNhat(1, 1);
+        o.method(cn);
+        System.out.printf("x=%d, y=%d", cn.rong, cn.dai);
     }
-    static void m(int x) {
-        x = 200;
-    }
-
 }

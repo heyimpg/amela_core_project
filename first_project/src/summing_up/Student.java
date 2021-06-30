@@ -1,9 +1,17 @@
 package summing_up;
 
 public class Student extends Person {
-    @Override
-    public void talk() {
-        super.talk();
+    public Student() {
+    }
+
+  //  @Override
+    public void talk(int a) {
+//        super.talk();
         System.out.println("This is a Student");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
