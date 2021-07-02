@@ -1,14 +1,25 @@
 package java_web.branches_ex;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class test {
     public static void main(String[] args) {
-        String str1 = "Muộn Rồi Mà Sao Còn" +
-                "\nSài Gòn Đau Lòng Quá";
-        System.out.println(str1);
-        System.out.println("After");
-      //  String str2 = str1.replaceAll("\\n+", "");
-        String str2 = str1.replaceAll("\\Z", "");
-        System.out.println(str2);
+        String txt ="ojdsdsds" +
+                "\ndsdsdsds" +
+                "\ndsds";
+        System.out.println(txt);
+        String txt2 = txt.replaceAll("\\n+","");
+        System.out.println(txt2);
+       /* String condition = "\\n+";
+        Pattern pattern = Pattern.compile(condition);
+        Matcher matcher = pattern.matcher(txt);
+*/
+      /*  boolean check = matcher.matches();
+        if (!check)
+            System.out.println(txt);
+*/
+
         System.out.println("\n\n\n--------End Code--------");
     }
 }

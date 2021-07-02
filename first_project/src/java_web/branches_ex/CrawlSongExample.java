@@ -19,9 +19,9 @@ public class CrawlSongExample {
             //C1
             Scanner scanner = new Scanner(new InputStreamReader(url.openStream()));
             scanner.useDelimiter("\\Z");
-
             String content = scanner.next();
             content = content.replaceAll("\\n+", "");
+          //  System.out.println(content);
 
             // regex
             Pattern p = Pattern.compile("name_song\">(.*?)</a>");
