@@ -1,0 +1,4 @@
+INSERT INTO hocsinh VALUES ('Hung', 'Ha Noi', '0912113113', 1, 1)
+INSERT INTO hocsinh VALUES ('Manh', 'HCM', '0123123123', 0, 2);
+INSERT INTO MonHoc VALUES (1, 'CF', 5)	
+INSERT INTO MonHoc VALUES (2, 'C', 6)	
