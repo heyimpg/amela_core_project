@@ -1,4 +1,4 @@
-package java_web.inherit_class;
+package java_core.inherit_class;
 
 public class Rectangle extends Shape {
     private double width = 1.0;

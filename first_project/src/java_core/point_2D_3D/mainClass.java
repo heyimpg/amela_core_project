@@ -1,4 +1,4 @@
-package java_web.point_2D_3D;
+package java_core.point_2D_3D;
 
 
 public class mainClass {

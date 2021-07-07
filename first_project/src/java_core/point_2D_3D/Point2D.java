@@ -1,14 +1,14 @@
-package java_web.point_and_moveablePoint;
+package java_core.point_2D_3D;
 
-public class Point {
-    private float x;
-    private float y;
-    public Point()
-    {
+public class Point2D {
+   private float x;
+   private float y;
+   public Point2D()
+   {
 
-    }
+   }
 
-    public Point(float x, float y) {
+    public Point2D(float x, float y) {
         this.x = x;
         this.y = y;
     }
@@ -40,7 +40,7 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point{" +
+        return "Point2D{" +
                 "x=" + x +
                 ", y=" + y +
                 '}';

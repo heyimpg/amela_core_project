@@ -1,4 +1,4 @@
-package java_web.point_and_moveablePoint;
+package java_core.point_and_moveablePoint;
 
 public class moveablePoint extends Point {
     private float xSpeed;

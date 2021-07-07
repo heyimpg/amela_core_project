@@ -1,4 +1,4 @@
-package java_web.inherit_class;
+package java_core.inherit_class;
 
 public class Square extends Rectangle {
     public Square() {

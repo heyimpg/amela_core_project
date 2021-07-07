@@ -1,4 +1,4 @@
-package java_web.inherit_class;
+package java_core.inherit_class;
 
 public class Circle extends Shape {
     private double radius = 1.0;

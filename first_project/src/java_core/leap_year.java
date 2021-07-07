@@ -1,4 +1,4 @@
-package java_web;
+package java_core;
 
 import java.util.Scanner;
 

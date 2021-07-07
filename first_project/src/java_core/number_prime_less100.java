@@ -1,6 +1,4 @@
-package java_web;
-
-import java.util.Scanner;
+package java_core;
 
 public class number_prime_less100 {
     //kiểm tra xem số đó có phải snt hay ko?

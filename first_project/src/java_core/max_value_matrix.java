@@ -1,4 +1,4 @@
-package java_web;
+package java_core;
 
 public class max_value_matrix {
     public static void main(String[] args) {

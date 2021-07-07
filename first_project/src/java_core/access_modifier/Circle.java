@@ -1,4 +1,4 @@
-package java_web.access_modifier;
+package java_core.access_modifier;
 
 public class Circle {
    private double radius = 1.0;

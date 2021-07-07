@@ -1,4 +1,4 @@
-package java_web.Inherit_cicle_cylinder;
+package java_core.Inherit_cicle_cylinder;
 
 public class Circle {
     private double radius;

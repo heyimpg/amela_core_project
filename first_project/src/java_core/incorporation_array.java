@@ -1,7 +1,4 @@
-package java_web;
-
-import java.lang.reflect.Array;
-import java.util.Scanner;
+package java_core;
 
 public class incorporation_array {
     public static void main(String[] args) {
