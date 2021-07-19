@@ -4,16 +4,21 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class mainClass {
+
+    static String regexPhone = "[0-9]{10}";
+    static String regexEmail = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+
     static List<Contact> arrList = new ArrayList<>();
     static {
-        String phone1 = "0985161234";
-        String phone2 = "0985161234";
-        String phone3 = "0985161234";
-        arrList.add(new Contact("An", phone1, "Hà Nội"));
-        arrList.add(new Contact("Ba", phone2, "Hà Nam"));
-        arrList.add(new Contact("Minh", phone3, "Hải Phòng"));
+        String phone = "0985161234";
+        String email = "tomodachy@gmail.com";
+        arrList.add(new Contact("An", phone, "Hà Nội", email));
+        arrList.add(new Contact("Ba", phone, "Hà Nam", email));
+        arrList.add(new Contact("Minh", phone, "Hải Phòng", email));
     }
 
     static Scanner scanner = new Scanner(System.in);
@@ -56,44 +61,77 @@ public class mainClass {
     }
 
     private static void searchContact() {
+            boolean check = false;
 
-            System.out.println("Nhập tên liên hệ cần tìm: ");
-            String name =  scanner.next();
+            System.out.println("Nhập tên liên hệ (hoặc SDT) cần tìm: ");
+            String search =  scanner.next();
+
             for (Contact p : arrList)
-                if (p.getName().equalsIgnoreCase(name))
+                if (p.getName().contains(search) || p.getPhone().contains(search))
                 {
+                    check = true;
                     System.out.println("Tìm thấy");
                     System.out.println(p.toString());
                 }
+
+            if (!check)
+                System.out.println("Không tìm thấy");
+
     }
 
     private static void updateContact() {
+
+        String phone, addr, name, email;
         int vtri = -9;
         while (vtri==-9)
         {
-            System.out.println("Nhập tên liên hệ cần Sửa: ");
-            String name =  scanner.next();
+            System.out.println("Nhập SDT cần Sửa: ");
+            phone =  scanner.next();
             for (int i=0 ; i< arrList.size(); i++)
             {
-                if (arrList.get(i).getName().equalsIgnoreCase(name))
+                if (arrList.get(i).getPhone().equalsIgnoreCase(phone))
+                {
                     vtri = i;
+                    break;
+                }
             }
             if (vtri==-9)
-                System.out.println("Tên liên hệ k tồn tại, vui lòng kiểm tra lại");
+                System.out.println("SDT không tồn tại, vui lòng kiểm tra lại");
         }
 
         System.out.println("Nhập thông tin cần chỉnh sửa");
 
         System.out.println("Tên: ");
+        name =  scanner.next();
+
+
+        do {
+            System.out.println("SDT: ");
+            phone =  scanner.next();
+            if (!validateContact(phone, regexPhone))
+                System.out.println("Bạn chỉ được nhập số (chứa 10 số)");
+        }while (!validateContact(phone, regexPhone));
+
+        System.out.println("Địa chỉ: ");
+        addr =  scanner.next();
+
+        do {
+            System.out.println("email: ");
+            email =  scanner.next();
+            if (!validateContact(email, regexEmail))
+                System.out.println("Bạn phải nhập đúng định dạng email VD: abc@gmail.com");
+        }while (!validateContact(email, regexEmail));
+
+     /*   System.out.println("Tên: ");
         String name =  scanner.next();
 
         System.out.println("SDT: ");
         String phone =  scanner.next();
 
         System.out.println("Địa chỉ: ");
-        String addr =  scanner.next();
+        String addr =  scanner.next();*/
 
-        Contact contact = new Contact(name, phone, addr);
+        Contact contact = new Contact(name, phone, addr, email);
         arrList.set(vtri, contact);
 
 
@@ -102,40 +140,86 @@ public class mainClass {
 
     private static void deleteContact() {
         boolean check = false;
+        int vtri = 0;
         while (!check)
         {
-            System.out.println("Nhập tên liên hệ cần xóa: ");
-            String name =  scanner.next();
-            for (Contact p : arrList)
-                if (p.getName().equalsIgnoreCase(name))
+            System.out.println("Nhập SDT cần xóa: ");
+            String phone =  scanner.next();
+
+            for (int i=0; i<arrList.size(); i++)
+            {
+                if (arrList.get(i).getPhone().equalsIgnoreCase(phone))
+                {
                     check = true;
-            System.out.println("Tên liên hệ k tồn tại, vui lòng kiểm tra lại");
+                    vtri = i;
+                    break;
+                }
+
+            }
+
+            if (!check)
+                System.out.println("SDT không tồn tại, vui lòng kiểm tra lại");
         }
-        System.out.println("Xóa thành công");
+
+        System.out.println("Xác nhận xóa người dùng "+arrList.get(vtri).getName()+" ?");
+        String confirm = scanner.next();
+        if (confirm.equalsIgnoreCase("Y"))
+        {
+            arrList.remove(vtri);
+            System.out.println("Xóa thành công");
+        }else
+        {
+            System.out.println("Chưa xóa liên hệ");
+        }
 
 
     }
 
-    private static void addContact() {
-      /*  Scanner scanner = new Scanner(System.in);*/
-        System.out.println("Nhập thông tin liên hệ mới");
-        System.out.println("Tên: ");
-        String name =  scanner.next();
+    private static boolean validateContact(String txt, String condition)
+    {
+        Pattern pattern = Pattern.compile(condition);
+        Matcher matcher = pattern.matcher(txt);
+        return matcher.matches();
+    }
 
-        System.out.println("SDT: ");
-        String phone =  scanner.next();
+    private static void addContact() {
+
+        System.out.println("Nhập thông tin liên hệ mới");
+        String phone, addr, name, email;
+
+        System.out.println("Tên: ");
+        name =  scanner.next();
+
+        do {
+            System.out.println("SDT: ");
+            phone =  scanner.next();
+            if (!validateContact(phone, regexPhone))
+                System.out.println("Bạn chỉ được nhập số (chứa 10 số)");
+        }while (!validateContact(phone, regexPhone));
 
         System.out.println("Địa chỉ: ");
-        String addr =  scanner.next();
+        addr =  scanner.next();
 
-        arrList.add(new Contact(name, phone, addr));
+        do {
+            System.out.println("email: ");
+            email =  scanner.next();
+            if (!validateContact(email, regexEmail))
+                System.out.println("Bạn phải nhập đúng định dạng email VD: abc@gmail.com");
+        }while (!validateContact(email, regexEmail));
+
+        arrList.add(new Contact(name, phone, addr, email));
 
         System.out.println("Thêm mới thành công");
     }
 
     private static void getAllContact() {
         System.out.println("Danh sách liên hệ: ");
-        arrList.forEach(item-> System.out.println(item.toString()));
+        arrList.forEach(item->
+                {
+                    System.out.println(item.toString());
+                   /* System.exit(0);*/
+                }
+                );
     }
 
     private static void showOptionMenu() {

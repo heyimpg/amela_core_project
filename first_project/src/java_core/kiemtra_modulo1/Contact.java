@@ -4,12 +4,28 @@ public class Contact{
    private String name;
    private String phone;
    private String addr;
+   private String email;
 
-    public Contact(String name, String phone, String addr) {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Contact(String name, String phone, String addr, String email) {
         this.name = name;
         this.phone = phone;
         this.addr = addr;
+        this.email = email;
     }
+
+  /*  public Contact(String name, String phone, String addr) {
+        this.name = name;
+        this.phone = phone;
+        this.addr = addr;
+    }*/
 
     public String getName() {
         return name;
@@ -39,6 +55,8 @@ public class Contact{
     public String toString() {
         return  "name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
-                ", addr='" + addr;
+                 ", address='" + addr + '\'' +
+                ", email='" + email
+                ;
     }
 }
